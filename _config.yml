@@ -7,18 +7,18 @@
 # ************************************************************************************************************
 
 # Site
-title: 班班碎碎念
-subtitle: 无曰已是 无曰遂真
-description: '@lei2rock<br>日常生活、碎碎念与科研随笔记录'
-keywords: [班班, 碎碎念, 博客, blog]
-author: 班班
+title: Panjks -
+subtitle: '悲伤，愤怒，而无力。'
+description: '@Panjks-</br>Study · Try · Enjoy · Documentary'
+keywords: [枫夜丶, Panjks-, 博客, blog]
+author: 枫夜丶
 language: zh-CN
 timezone: Asia/Shanghai
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: https://mirror.zdl.one
-root: /
+url: https://panjks.github.io/blog
+root: /blog/
 permalink: /posts/:pid/
 permalink_defaults:
 pretty_urls:
@@ -164,11 +164,11 @@ theme_config:
     safari_pinned_tab: /images/safari-pinned-tab.svg
 
   footer:
-    since: 2015
+    since: 2019
     icon:
-      name: fas fa-heart
+      name: fab fa-canadian-maple-leaf
       animated: true
-      color: "#f06292"
+      color: "#c21f30"
     powered: false
 
   # See: https://creativecommons.org/share-your-work/licensing-types-examples
@@ -190,11 +190,11 @@ theme_config:
       default: /overview/ || fas fa-th
       tags: tags/ || fas fa-tags
       timeline: timeline/ || fas fa-archive
-    photos: /photos/ || fas fa-camera-retro
+    # photos: /photos/ || fas fa-camera-retro
     share: /share/ || fas fa-share-alt
     more: /more/ || fas fa-location-arrow
     friends: friends/ || fas fa-heart
-    homepage: https://dlzhang.com || fas fa-globe
+    # homepage: https://dlzhang.com || fas fa-globe
 
   # ---------------------------------------------------------------
   # Sidebar Settings
@@ -203,17 +203,17 @@ theme_config:
 
   # Sidebar Avatar
   avatar:
-    url: https://cdn.v2ex.com/gravatar/cc763511474fe24ffcc80257fb7cb970?s=200
+    url: /images/avatar.jpeg
     rounded: true
 
   # Posts / Categories / Tags in sidebar.
   site_state: false
 
   social:
-    微博: https://weibo.com/7216640993 || fab fa-weibo
-    Twitter: https://twitter.com/lei2rock || fab fa-twitter
-    GitHub: https://github.com/lei2rock || fab fa-github
-    RSS: https://blog.dlzhang.com/feed || fas fa-rss
+    微博: https://www.weibo.com/panjks || fab fa-weibo
+    Twitter: https://twitter.com/Reach_The_Sky__ || fab fa-twitter
+    GitHub: https://twitter.com/Reach_The_Sky__ || fab fa-github
+    RSS: https://github.com/Panjks/ || fas fa-rss
 
   social_icons:
     icons_only: true
@@ -244,8 +244,8 @@ theme_config:
     comment: 🍭 支持一根棒棒糖！
 
   reward:
-    wechatpay: https://web-1256060851.cos.ap-shanghai.myqcloud.com/qrcode/wechat-pay.jpg
-    alipay: https://web-1256060851.cos.ap-shanghai.myqcloud.com/qrcode/alipay.jpg
+    wechatpay: /images/wechat-qrcode.png
+    alipay: /images/alipay-qrcode.png
 
   # Dependencies: https://github.com/tea3/hexo-related-popular-posts
   related_posts:
@@ -314,7 +314,7 @@ theme_config:
     # Font settings for site title (.site-title).
     title:
       external: true
-      family: Long Cang
+      family: Rock Salt
       size: 2
 
     # Font settings for headlines (<h1> to <h6>).
@@ -366,8 +366,8 @@ theme_config:
 
   valine:
     enable: true
-    appid: ydaoV9samWgzerLX7OHEbRgk-MdYXbMMI # Your leancloud application appid
-    appkey: 5jRfX3rExENmJqhdzkRqPndP # Your leancloud application appkey
+    appid: l1ofxJns4ysJqDTQpG78MSJA-gzGzoHsz # Your leancloud application appid
+    appkey: EhA8RzWz9GI15vlho1I8HfOM # Your leancloud application appkey
     placeholder: 来这里留下你的想法与观点～（回复提醒通过邮件发送） # Comment box placeholder
     avatar: wavatar # Gravatar style
     guest_info: nick,mail # Custom comment header, nick,mail,link 
