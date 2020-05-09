@@ -1,4 +1,4 @@
 User-agent: *
 Disallow: /page/
 
-Sitemap: https://blog.dlzhang.com/sitemap.xml
+Sitemap: https://panjks.github.io/blog/sitemap.xml
