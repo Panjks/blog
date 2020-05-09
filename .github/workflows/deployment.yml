@@ -1,0 +1,62 @@
+name: Deployment
+
+on:
+  push:
+    branches: [hexo] # only push events on source branch trigger deployment
+
+jobs:
+  hexo-deployment:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+
+    steps:
+    - name: Checkout source
+      uses: actions/checkout@v2
+      with:
+        submodules: true
+
+#    - name: Setup Node.js
+#      uses: actions/setup-node@v1
+#      with:
+#        node-version: '12.x'
+
+    # https://github.com/actions/cache/blob/master/examples.md#node---yarn
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+
+    - name: Yarn cache
+      uses: actions/cache@v1
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+#    - name: Fix Wrong Update Time
+#      run: |
+#        find source/_posts -name '*.md' | while read file
+#        do touch -d "$(git log -1 --format="@%ct" "$file")" "$file"
+#        done
+
+    - name: Install dependencies & Generate static files
+      run: |
+        node -v
+        export PATH="$PATH:$(yarn global bin)"
+        yarn global add hexo-cli
+        yarn install
+        sed -i '18s/imageLink/imageLink.replace(\/\![0-9]{3,}x\/,"")/' themes/next/source/js/utils.js
+        yarn build
+    - name: Deploy to Github Pages
+      env:
+        GIT_NAME: panjks
+        GIT_EMAIL: ${{ secrets.GIT_EMAIL }}
+        REPO: github.com/panjks/blog
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: |
+        cd ./public && git init && git add .
+        git config --global user.name $GIT_NAME
+        git config --global user.email $GIT_EMAIL
+        git commit -m "Site deployed by GitHub Actions"
+        git push --force --quiet "https://$GH_TOKEN@$REPO" master:master
